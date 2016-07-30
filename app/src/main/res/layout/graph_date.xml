@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_below="@+id/display"
+        android:id="@+id/linearLayout"
+        android:orientation="horizontal" />
+
+    <com.github.mikephil.charting.charts.CombinedChart
+        android:id="@+id/chart1"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_above="@+id/textView11" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Bars show money earned per ride and dots indicate distance travelled.Y-axis indicates ₹ in multiples of hundred"
+        android:id="@+id/textView11"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
