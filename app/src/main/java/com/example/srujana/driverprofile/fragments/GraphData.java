@@ -192,9 +192,9 @@ if(isDate) {
         if (e == null)
             return;
         if(isDate)
-        Toast.makeText(getActivity(),"Fare for that Ride "+(h.getY())*100+"",Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(),"Fare for that Ride "+(h.getY())*100+"",Toast.LENGTH_SHORT).show();
         else
-            Toast.makeText(getActivity(),"Total income Earned on that day"+(h.getY())*100+"",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"Total income Earned on that day"+(h.getY())*100+"",Toast.LENGTH_SHORT).show();
     }
 
     @Override
