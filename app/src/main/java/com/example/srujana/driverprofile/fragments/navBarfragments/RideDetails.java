@@ -18,8 +18,8 @@ import android.widget.TextView;
 import com.example.srujana.driverprofile.R;
 import com.example.srujana.driverprofile.dialogBoxes.MonthYearPickerDialog;
 import com.example.srujana.driverprofile.fragments.GraphData;
-import com.example.srujana.driverprofile.fragments.searchfragments.SearchData;
 import com.example.srujana.driverprofile.fragments.searchfragments.SearchBySpinner;
+import com.example.srujana.driverprofile.fragments.searchfragments.SearchData;
 import com.example.srujana.driverprofile.fragments.searchfragments.SearchTextView;
 
 import java.util.Calendar;
@@ -31,8 +31,8 @@ public class RideDetails extends Fragment {
     Fragment fragment;
     Switch graph;
     View view;
-    private boolean isDate=false;
     Bundle bundle = new Bundle();
+    private boolean isDate = false;
 
     @Nullable
     @Override
@@ -64,23 +64,23 @@ public class RideDetails extends Fragment {
                         @Override
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                             bundle.putString("Date", dayOfMonth + "-" + monthOfYear + "-" + year);
-                            bundle.putBoolean("isDate",true);
-                            isDate=true;
+                            bundle.putBoolean("isDate", true);
+                            isDate = true;
                             showFragment();
                         }
                     };
                     DatePickerDialog dpd = new DatePickerDialog(getActivity(), onDateSetListener, Calendar.getInstance().get(Calendar.YEAR),
                             Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
                     dpd.show();
-                } else if("Search By Month".equals(staticSpinner.getSelectedItem().toString())){
+                } else if ("Search By Month".equals(staticSpinner.getSelectedItem().toString())) {
                     MonthYearPickerDialog pd = new MonthYearPickerDialog();
                     pd.setListener(new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                             bundle.putInt("Year", year);
                             bundle.putInt("Month", monthOfYear);
-                            bundle.putBoolean("isDate",false);
-                            isDate=false;
+                            bundle.putBoolean("isDate", false);
+                            isDate = false;
                             showFragment();
                         }
                     });
@@ -108,35 +108,35 @@ public class RideDetails extends Fragment {
     }
 
     private void showGraph(boolean isChecked) {
-        if(isChecked){
-            if(isDate){
-                bundle.putBoolean("isDate",true);
-                if(getView()!=null) {
+        if (isChecked) {
+            if (isDate) {
+                bundle.putBoolean("isDate", true);
+                if (getView() != null) {
                     TextView display = (TextView) getView().findViewById(R.id.display_date);
                     bundle.putString("Display Text", (String) display.getText());
                 }
-            }else{
-                bundle.putBoolean("isDate",false);
-                if(getView()!=null) {
+            } else {
+                bundle.putBoolean("isDate", false);
+                if (getView() != null) {
                     TextView display = (TextView) getView().findViewById(R.id.display_date);
                     bundle.putString("Display Text", (String) display.getText());
                 }
 
             }
-            fragment =new GraphData();
+            fragment = new GraphData();
             fragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.searchby_content,fragment).commit();
-        }else{
-            if(isDate){
+            fragmentManager.beginTransaction().replace(R.id.searchby_content, fragment).commit();
+        } else {
+            if (isDate) {
 
-                bundle.putBoolean("isDate",true);
+                bundle.putBoolean("isDate", true);
 
-            }else{
-                fragment=new SearchData();
+            } else {
+                fragment = new SearchData();
             }
-            fragment =new SearchData();
+            fragment = new SearchData();
             fragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.searchby_content,fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.searchby_content, fragment).commit();
 
         }
     }

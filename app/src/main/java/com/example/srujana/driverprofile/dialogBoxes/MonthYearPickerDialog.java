@@ -16,7 +16,6 @@ import java.util.Calendar;
 
 public class MonthYearPickerDialog extends DialogFragment {
 
-    private static final int MAX_YEAR = 2099;
     private DatePickerDialog.OnDateSetListener listener;
 
     public void setListener(DatePickerDialog.OnDateSetListener listener) {
@@ -36,7 +35,7 @@ public class MonthYearPickerDialog extends DialogFragment {
 
         monthPicker.setMinValue(1);
         monthPicker.setMaxValue(12);
-        monthPicker.setDisplayedValues(new String[]{"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"});
+        monthPicker.setDisplayedValues(new String[]{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"});
         monthPicker.setValue(cal.get(Calendar.MONTH) + 1);
 
         int year = cal.get(Calendar.YEAR);
